@@ -26,7 +26,10 @@ export const experiencePanel = () => {
           for (let i = 0; i < numberOfActors; i++) {
             const currentLevel = parseInt(actorList[i].system.level.value);
             const currentXP = parseInt(actorList[i].system.level.xp);
-            const increaseXP = parseInt(html.find(`#exp${i}`).val());
+            const increaseXP =
+              html.find(`#exp${i}`).val() === ""
+                ? 0
+                : parseInt(html.find(`#exp${i}`).val());
             const totalXP = currentXP + increaseXP;
 
             if (checkLevelUp(currentLevel, totalXP)) {
